@@ -611,7 +611,9 @@
                 display: block;
             }
             
+            /* Fixed Hero Section for Mobile */
             .hero {
+                background-attachment: scroll;
                 padding: 150px 0 80px;
                 min-height: 80vh;
             }
@@ -670,6 +672,12 @@
         }
 
         @media (max-width: 480px) {
+            .hero {
+                background-attachment: scroll;
+                padding: 140px 0 60px;
+                min-height: 70vh;
+            }
+            
             .hero h1 {
                 font-size: 2rem;
             }
@@ -705,6 +713,23 @@
             
             .container {
                 padding: 0 20px;
+            }
+        }
+
+        /* Additional fix for very small screens */
+        @media (max-width: 360px) {
+            .hero {
+                background-attachment: scroll;
+                padding: 130px 0 50px;
+                min-height: 60vh;
+            }
+            
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
             }
         }
     </style>
