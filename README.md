@@ -10,6 +10,7 @@ Official website for ITent Tech - Providing comprehensive IT solutions including
 
 ## Contact
 - **Contact Person**: Marzook Usama
-- **WhatsApp**: +94 70 161 040
+- **WhatsApp**: +94 70 161 0403
 - **Email**: info@itenttech.com
+
 - **Website**: itenttech.com
