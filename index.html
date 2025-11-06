@@ -139,14 +139,12 @@
             color: var(--primary);
         }
 
-        /* Hero Section */
+        /* Updated Hero Section */
         .hero {
-            background: 
-                linear-gradient(135deg, rgba(37, 99, 235, 0.85), rgba(30, 64, 175, 0.85)),
-                url('head.jpg');
+            background: url('head.jpg');
             background-size: cover;
             background-position: center;
-            background-attachment: fixed;
+            background-attachment: fixed; /* This creates the parallax effect */
             color: white;
             padding: 180px 0 120px;
             text-align: center;
@@ -156,50 +154,24 @@
             position: relative;
         }
 
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.7), rgba(30, 64, 175, 0.7));
+            z-index: 1;
+        }
+
         .hero-content {
             max-width: 900px;
             margin: 0 auto;
             position: relative;
-            z-index: 2;
+            z-index: 2; /* Text above the overlay */
         }
 
-        .hero h1 {
-            font-size: 4rem;
-            margin-bottom: 25px;
-            font-weight: 800;
-            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
-            line-height: 1.2;
-        }
-
-        .hero p {
-            font-size: 1.4rem;
-            max-width: 700px;
-            margin: 0 auto 40px;
-            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
-            font-weight: 300;
-        }
-
-        .btn {
-            display: inline-block;
-            background-color: white;
-            color: var(--primary);
-            padding: 16px 40px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 18px;
-            transition: all 0.3s ease;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-            border: 2px solid transparent;
-        }
-
-        .btn:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
-            background: transparent;
-            color: white;
-            border-color: white;
-        }
 
         /* Services Section */
         .section {
@@ -308,78 +280,39 @@
             font-size: 1.05rem;
         }
 
-        /* About Section */
-        .about {
-            background-color: white;
-            position: relative;
+        /* Updated About Section for Mobile */
+        @media (max-width: 768px) {
+            .about-content {
+                flex-direction: column;
+                gap: 30px;
+            }
+            
+            .about-image {
+                order: -1;
+                height: 300px;
+                width: 100%;
+                margin-bottom: 0;
+            }
+            
+            .about-text {
+                width: 100%;
+            }
+            
+            .about-image-content h3 {
+                font-size: 2rem;
+                padding: 20px;
+            }
         }
 
-        .about-content {
-            display: flex;
-            align-items: center;
-            gap: 70px;
-        }
-
-        .about-text {
-            flex: 1;
-        }
-
-        .about-text h2 {
-            font-size: 3.2rem;
-            margin-bottom: 25px;
-            color: var(--dark);
-            font-weight: 800;
-            line-height: 1.2;
-        }
-
-        .about-text p {
-            margin-bottom: 25px;
-            color: var(--gray);
-            font-size: 1.1rem;
-            line-height: 1.8;
-        }
-
-        .about-image {
-            flex: 1;
-            height: 500px;
-            border-radius: 20px;
-            overflow: hidden;
-            position: relative;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
-        }
-
-        .about-image::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: 
-                linear-gradient(135deg, rgba(37, 99, 235, 0.1), rgba(30, 64, 175, 0.1)),
-                url('it.png');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-        }
-
-        .about-image-content {
-            position: relative;
-            z-index: 2;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            text-align: center;
-            padding: 40px;
-        }
-
-        .about-image-content h3 {
-            font-size: 2.8rem;
-            font-weight: 800;
-            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
-            line-height: 1.3;
+        /* For very small mobile devices */
+        @media (max-width: 480px) {
+            .about-image {
+                height: 250px;
+            }
+            
+            .about-image-content h3 {
+                font-size: 1.8rem;
+            }
         }
 
         /* Contact Section */
